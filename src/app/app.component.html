@@ -1,9 +1,7 @@
-<!-- <button class="btn btn-primary m-2 d-md-none" (click)="toggleSidebar()">
-  <i class="fas fa-bars"></i>
-</button> -->
+
 
 <app-sidebar *ngIf="showSidebar"></app-sidebar>
 
-<div class="main-content p-4" [class.shifted]="showSidebar">
-  <router-outlet></router-outlet>
+<div  [class.shifted]="showSidebar">
+  <router-outlet class="page-wrapper"></router-outlet>
 </div>
