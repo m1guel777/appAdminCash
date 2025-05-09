@@ -10,22 +10,15 @@
 
 
 
-.page-wrapper {
-  padding: 20px;
+/* Esto ajusta el contenido cuando el sidebar está visible */
+.content {
+  padding: 20px; /* Puedes ajustar el valor */
+  margin-left: 250px; /* Ancho del sidebar */
+  margin-top: 60px;   /* Altura del header */
   transition: all 0.3s ease;
 }
 
-/* Ajuste cuando el sidebar está visible */
-.page-wrapper.shifted {
-  margin-left: 250px; /* Ancho de tu sidebar */
-  margin-top: 60px;   /* Alto de tu header, si existe */
+/* Si el sidebar puede ocultarse */
+.content:not(.shifted) {
+  margin-left: 0;
 }
-
-/* Ajustes responsivos si es necesario */
-@media (max-width: 768px) {
-  .page-wrapper.shifted {
-    margin-left: 0;
-    margin-top: 60px;
-  }
-}
-
