@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { ModuloServiceService } from '../services/modulo-service.service';
 
 declare var $: any; // Para poder usar jQuery
 
@@ -12,10 +13,13 @@ export class SidebarComponent implements AfterViewInit , OnDestroy{
 
   private scriptElement: HTMLScriptElement | undefined;
 
+
   ngAfterViewInit(): void {
     this.loadScript('assets/js/custom.min.js');
+
   }
 
+  constructor(private moduloService: ModuloServiceService) { }
 
   loadScript(src: string): void {
     this.scriptElement = document.createElement('script');
@@ -30,6 +34,9 @@ export class SidebarComponent implements AfterViewInit , OnDestroy{
       document.body.removeChild(this.scriptElement);
     }
   }
+
+
+
 
 
 

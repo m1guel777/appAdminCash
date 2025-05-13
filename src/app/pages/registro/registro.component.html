@@ -1,0 +1,76 @@
+<div class="container mt-4">
+  <div class="card shadow-sm" style="max-width: 500px; margin: auto;">
+    <div class="card-header text-center bg-primary text-white">
+      <strong>Registrar Segmento</strong>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #segmentoForm="ngForm">
+        <div class="form-group mb-3">
+          <label for="nombre">Nombre</label>
+          <input
+            type="text"
+            id="nombre"
+            class="form-control form-control-sm"
+            required
+            [(ngModel)]="segmento.nombre"
+            name="nombre"
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="precio">Precio</label>
+          <input
+            type="number"
+            id="precio"
+            class="form-control form-control-sm"
+            required
+            [(ngModel)]="segmento.precio"
+            name="precio"
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="descripcion">Descripción</label>
+          <textarea
+            id="descripcion"
+            class="form-control form-control-sm"
+            [(ngModel)]="segmento.descripcion"
+            name="descripcion"
+          ></textarea>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="modulo">Mostrar en módulo</label>
+          <select
+            id="modulo"
+            class="form-control form-control-sm"
+            required
+            [(ngModel)]="segmento.modulo"
+            name="modulo"
+          >
+            <option value="" disabled selected>Seleccione un módulo</option>
+            <option *ngFor="let modulo of lstmodulos" [value]="modulo.id">
+              {{ modulo.nombre }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="imagen">Imagen</label>
+          <input
+            type="file"
+            id="imagen"
+            class="form-control form-control-sm"
+            (change)="onFileSelected($event)"
+            name="imagen"
+            #fileInput
+          />
+        </div>
+
+        <button type="submit" class="btn btn-success w-100" [disabled]="!segmentoForm.form.valid">
+          Crear Segmento
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
